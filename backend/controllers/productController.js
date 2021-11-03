@@ -19,7 +19,7 @@ exports.newProduct = catchAsyncErrors(async(req, res, next) =>
 // Get all products => /api/vi/products?keyword=laptop
 exports.getProducts = catchAsyncErrors(async (req, res, next) =>
 {
-    const resPerPage = 7;
+    const resPerPage = 9;
     const productCount = await Product.countDocuments();
 
     const apiFeatures = new APIFeatures(Product.find(), req.query)

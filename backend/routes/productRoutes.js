@@ -10,7 +10,7 @@ router.route('/products').get(getProducts);
 
 router.route('/products/new').post(isAuthenticatedUser, authorizeRoles('admin'), newProduct);
 
-router.route('/admin/product/:id').get(getSingleProduct);
+router.route('/product/:id').get(getSingleProduct);
 
 router.route('/admin/product/:id')
 .put(isAuthenticatedUser,authorizeRoles('admin'), updateProduct)
