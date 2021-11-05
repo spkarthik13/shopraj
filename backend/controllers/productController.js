@@ -19,7 +19,7 @@ exports.newProduct = catchAsyncErrors(async(req, res, next) =>
 // Get all products => /api/vi/products?keyword=laptop
 exports.getProducts = catchAsyncErrors(async (req, res, next) =>
 {
-    const resPerPage = 9;
+    const resPerPage = 4;
     const productCount = await Product.countDocuments();
 
     const apiFeatures = new APIFeatures(Product.find(), req.query)
@@ -31,10 +31,10 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) =>
     res.status(200).json({
         sucess:true,
         productCount,
+        resPerPage,
         products
     })
 })
-
 
 //Get single prodict details => /api/v1/admin/product/:id
 //Search single product => /api/v1/admin/product?keyword=laptop
